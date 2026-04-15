@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Ajouter un membre</h2>
+
+<div class="card p-4 shadow-sm">
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Enregistrer
+        </button>
+    </form>
+
+</div>
+
+{% endblock %}
+<button class="btn btn-success">
+  <i class="fa fa-plus"></i> Ajouter un membre
+</button>
