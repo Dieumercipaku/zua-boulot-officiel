@@ -61,7 +61,7 @@ def dashboard(request):
 
 # 🔹 ACCUEIL (TEST)
 def accueil(request):
-    return HttpResponse("ACCUEIL OK")
+    return HttpResponse("SITE OK")
 
 # 🔹 LISTE MEMBRES
 def membres(request):
