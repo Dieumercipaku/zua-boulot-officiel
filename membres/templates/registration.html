@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Connexion</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn btn-primary">Se connecter</button>
+    </form>
+</div>
+{% endblock %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h3>Déconnecté avec succès 👋</h3>
+    <a href="/accounts/login/" class="btn btn-primary">Se reconnecter</a>
+</div>
+{% endblock %}

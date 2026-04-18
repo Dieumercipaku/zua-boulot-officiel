@@ -120,3 +120,17 @@ def dashboard(request):
 # 🔹 ACCUEIL (IMPORTANT - manquait chez toi)
 def accueil(request):
     return render(request, 'accueil.html')
+
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
+def inscription(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/accounts/login/')
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'inscription.html', {'form': form})

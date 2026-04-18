@@ -25,3 +25,11 @@ urlpatterns = [
     path('ajouter/', views.ajouter_membre, name='ajouter_membre'),
     path('dashboard/', views.dashboard, name='dashboard'),
 ]
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('membres.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),  # 🔥 important
+]
