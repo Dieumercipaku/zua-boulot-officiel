@@ -60,9 +60,10 @@ def dashboard(request):
 
 
 # 🔹 ACCUEIL (TEST)
+from django.http import HttpResponse
+
 def accueil(request):
     return HttpResponse("SITE OK")
-
 # 🔹 LISTE MEMBRES
 def membres(request):
     liste = Membre.objects.all()
