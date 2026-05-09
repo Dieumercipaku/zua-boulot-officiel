@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>📄 IA CV (Analyse intelligente)</h2>
+
+<h5>🧠 Compétences détectées :</h5>
+<ul>
+    {% for c in competences %}
+        <li>{{ c }}</li>
+    {% empty %}
+        <li>Aucune compétence détectée</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h5>💼 Offres recommandées :</h5>
+
+<ul class="list-group">
+    {% for r in resultats %}
+        <li class="list-group-item">
+            <strong>{{ r.offre.titre }}</strong><br>
+            {{ r.offre.entreprise }}<br>
+
+            <span class="badge bg-success">
+                Score IA : {{ r.score }}
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

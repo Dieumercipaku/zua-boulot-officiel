@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h3>Ajouter une expérience</h3>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="titre" placeholder="Poste" class="form-control mb-2" required>
+        <input type="text" name="entreprise" placeholder="Entreprise" class="form-control mb-2" required>
+        <textarea name="description" placeholder="Description" class="form-control mb-2"></textarea>
+
+        <label>Date début</label>
+        <input type="date" name="date_debut" class="form-control mb-2" required>
+
+        <label>Date fin</label>
+        <input type="date" name="date_fin" class="form-control mb-3">
+
+        <button class="btn btn-primary">Ajouter</button>
+    </form>
+</div>
+
+{% endblock %}

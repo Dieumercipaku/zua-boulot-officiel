@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height:90vh;">
+
+    <div class="card shadow p-4" style="width:400px; border-radius:15px;">
+
+        <!-- TITRE -->
+        <h3 class="text-center mb-4 fw-bold">
+            Se connecter
+        </h3>
+
+        <!-- MESSAGES -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- FORM -->
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email"
+                       name="username"
+                       class="form-control"
+                       placeholder="Votre email"
+                       required>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <label>Mot de passe</label>
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="Votre mot de passe"
+                       required>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-primary w-100 py-2">
+                Se connecter
+            </button>
+
+        </form>
+
+        <!-- MOT DE PASSE OUBLIE -->
+        <div class="text-center mt-3">
+            <a href="/password-reset/">
+                Mot de passe oublié ?
+            </a>
+        </div>
+
+        <!-- INSCRIPTION -->
+        <div class="text-center mt-3">
+            <p>
+                Pas encore de compte ?
+                <a href="/inscription/">S'inscrire</a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

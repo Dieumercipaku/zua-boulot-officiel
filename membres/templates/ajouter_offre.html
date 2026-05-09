@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Ajouter une offre</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="btn btn-success">Publier</button>
+</form>
+{% endblock %}
+<div class="table-responsive">
+    <table class="table">

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">📊 Dashboard Admin</h2>
+
+<div class="row text-center mb-4">
+    <div class="col-md-4">
+        <div class="card bg-primary text-white p-3">
+            <h4>{{ total_membres }}</h4>
+            <p>Membres</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-success text-white p-3">
+            <h4>{{ total_offres }}</h4>
+            <p>Offres</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-danger text-white p-3">
+            <h4>{{ total_candidatures }}</h4>
+            <p>Candidatures</p>
+        </div>
+    </div>
+</div>
+
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const labels = JSON.parse('{{ labels|escapejs }}');
+const data = JSON.parse('{{ data|escapejs }}');
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Membres par fonction',
+            data: data
+        }]
+    }
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Candidatures 📊</h2>
+
+<ul class="list-group">
+    {% for c in candidatures %}
+        <li class="list-group-item">
+            <strong>{{ c.utilisateur.username }}</strong> → {{ c.offre.titre }}<br>
+            {{ c.message }}<br>
+
+            {% if c.cv %}
+                <a href="{{ c.cv.url }}" target="_blank">📄 Voir CV</a>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li class="list-group-item">Aucune candidature</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

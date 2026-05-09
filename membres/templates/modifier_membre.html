@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Modifier Membre</h2>
+
+<form method="post">
+   {% for m in membres %}
+{% empty %}
+{% endfor %}
+    <button class="btn btn-success">Enregistrer</button>
+</form>
+
+{% endblock %}

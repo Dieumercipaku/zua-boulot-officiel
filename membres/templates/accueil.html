@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="carouselHero" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <!-- INDICATORS -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <!-- SLIDE 1 -->
+        <div class="carousel-item active">
+            <div class="hero-img" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')">
+                <div class="overlay">
+                    <h1>Trouve ton emploi avec Zua Boulot</h1>
+                    <a href="/accounts/login/" class="btn btn-light mt-3">Se connecter</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="carousel-item">
+            <div class="hero-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80')">
+                <div class="overlay">
+                    <h1>Publie tes offres</h1>
+                    <a href="/offres/ajouter/" class="btn btn-warning mt-3">Publier</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="carousel-item">
+            <div class="hero-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')">
+                <div class="overlay">
+                    <h1>Rejoins la communauté</h1>
+                    <a href="/inscription/" class="btn btn-success mt-3">S’inscrire</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTROLES -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+
+<!-- 🔥 RECHERCHE -->
+<div class="container mt-5 text-center">
+    <h2 class="fw-bold">Trouve ton emploi</h2>
+
+    <form action="/offres/" method="get" class="row mt-4 justify-content-center">
+        <div class="col-md-4">
+            <input type="text" name="q" class="form-control form-control-lg" placeholder="Métier ou mot-clé">
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-lg w-100">Rechercher</button>
+        </div>
+    </form>
+</div>
+
+<!-- 🔥 SERVICES -->
+<div class="container position-relative" style="margin-top:-120px; z-index:10;">
+    <div class="row text-center g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h4>🔍 Recherche rapide</h4>
+                <p>Trouve un emploi en quelques clics</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h4>💼 Offres variées</h4>
+                <p>Des centaines d’opportunités</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4">
+                <h4>🚀 Booster carrière</h4>
+                <p>Développe ton avenir professionnel</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 🔥 CTA -->
+<div class="cta-section text-center text-white mt-5 p-5">
+    <h2>Rejoins la communauté Zua Boulot</h2>
+    <a href="/inscription/" class="btn btn-warning mt-3">Commencer maintenant</a>
+</div>
+
+{% endblock %}

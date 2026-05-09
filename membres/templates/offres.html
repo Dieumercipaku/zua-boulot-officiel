@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Offres d'emploi 💼</h2>
+
+<form method="get" class="mb-3">
+    <input type="text" name="q" placeholder="Rechercher un emploi..." 
+           class="form-control" value="{{ query }}">
+</form>
+
+<a href="/offres/ajouter/" class="btn btn-primary mb-3">Ajouter une offre</a>
+
+<ul class="list-group">
+    {% for o in offres %}
+        <li class="list-group-item">
+            <strong>{{ o.titre }}</strong><br>
+            {{ o.entreprise }}<br>
+            <small>{{ o.date_publication }}</small><br>
+
+            <!-- 🔥 BOUTON POSTULER -->
+            <a href="/offres/{{ o.id }}/postuler/" class="btn btn-success btn-sm mt-2">
+                📩 Postuler
+            </a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">Aucune offre disponible</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

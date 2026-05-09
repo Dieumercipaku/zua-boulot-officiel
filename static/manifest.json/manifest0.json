@@ -1,0 +1,9 @@
+{
+  "name": "Zua Boulot",
+  "short_name": "Zua",
+  "start_url": "https://zua-boulot-officiel.onrender.com/",
+  "scope": "https://zua-boulot-officiel.onrender.com/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height:90vh;">
+
+    <div style="width:380px;">
+
+        <!-- LOGO -->
+        <h2 class="mb-4 text-center fw-bold">Zua Boulot</h2>
+
+        <!-- TITRE -->
+        <h4 class="text-center mb-4">
+            Inscrivez-vous, c’est gratuit
+        </h4>
+
+        <!-- FORM -->
+        <form method="post" class="bg-white p-4 shadow rounded">
+            {% csrf_token %}
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <!-- TELEPHONE -->
+            <div class="mb-3">
+                <label>Téléphone</label>
+                <input type="text" name="telephone" class="form-control">
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <label>Mot de passe</label>
+                <input type="password" name="password1" class="form-control" required>
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="mb-3">
+                <label>Confirmer mot de passe</label>
+                <input type="password" name="password2" class="form-control" required>
+            </div>
+
+            <!-- CHECKBOX -->
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" checked>
+                <label class="form-check-label">
+                    Se souvenir de moi
+                </label>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-primary w-100 py-2">
+                Accepter et s’inscrire
+            </button>
+
+        </form>
+
+        <!-- GOOGLE -->
+        <div class="text-center mt-3">
+            <small>ou</small>
+        </div>
+
+        <button class="btn btn-light w-100 mt-2 border">
+            Continuer avec Google
+        </button>
+        <div class="text-center mt-3">
+    <p>
+        Vous avez déjà un compte ?
+        <a href="/accounts/login/">Se connecter</a>
+    </p>
+</div>
+
+    </div>
+
+</div>
+
+{% endblock %}

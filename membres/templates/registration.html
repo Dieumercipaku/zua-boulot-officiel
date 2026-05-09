@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Connexion</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Se connecter</button>
+    </form>
+</div>
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center mt-5">
+    <h3>Déconnecté avec succès 👋</h3>
+    <a href="/accounts/login/" class="btn btn-primary">Se reconnecter</a>
+</div>
+{% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h3>Connexion</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="step" value="1">
+
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+
+        <button class="btn btn-primary w-100">Suivant</button>
+    </form>
+</div>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height:80vh;">
+
+    <div class="card p-4 shadow" style="width:400px;">
+
+        <h4 class="mb-3 text-center">Réinitialiser mot de passe</h4>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <input type="email" name="email" class="form-control mb-3" placeholder="Votre email">
+
+            <button class="btn btn-primary w-100">
+                Envoyer le lien
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
