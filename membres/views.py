@@ -70,40 +70,35 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import default_token_generator
 
 def inscription(request):
+
     if request.method == 'POST':
+
         email = request.POST.get('email')
-        telephone = request.POST.get('telephone')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
 
-        if password1 != password2:
-            messages.error(request, "Cet email existe déjà")
-            return redirect('inscription')
+        # verifier mot de passe
+        if password != confirm_password:
+            messages.error(request, "Les mots de passe ne correspondent pas")
+            return redirect('/inscription/')
 
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "❌ Email déjà utilisé")
-            return redirect('inscription')
+        # verifier email existe deja
+        if User.objects.filter(username=email).exists():
+            messages.error(request, "Ce compte existe déjà")
+            return redirect('/accounts/login/')
 
+        # creer utilisateur
         user = User.objects.create_user(
             username=email,
             email=email,
-            password=password1
+            password=password
         )
 
-        Membre.objects.create(
-            user=user,
-            nom=email.split("@")[0],
-            prenom=email.split("@")[0],
-            postnom="",
-            email=email,
-            telephone=telephone
-        )
-
+        # connexion automatique
         login(request, user)
 
-        return redirect('profil')
-
-    return render(request, 'inscription.html')
+        # redirect profil
+        return redirect('/profil/')
 
     return render(request, 'inscription.html')
 # 💼 OFFRES
@@ -294,4 +289,5 @@ def envoyer_sms(numero, message):
         )
     except Exception as e:
         print("Erreur SMS:", e)
+        
     
